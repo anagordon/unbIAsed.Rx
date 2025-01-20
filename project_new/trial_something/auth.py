@@ -708,12 +708,8 @@ def identify():
             #GET THE ADR REPORT STATISTICS FOR SPECIFIC MEDICATION
             csv_file_path = os.path.join(os.path.dirname(__file__), 'ADRdata.csv')
             df = pd.read_csv(csv_file_path, delimiter='\t')
-            print(f"CSV file path: {csv_file_path}")
-
-            if not os.path.exists(csv_file_path):
-                print(f"File not found: {csv_file_path}")
-            else:
-                print(f"File found: {csv_file_path}")
+            print(df.head())
+            print(df.columns)
 
             # Define the specific string you're looking for
             specific_string = Medication.upper()
