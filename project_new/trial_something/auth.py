@@ -44,7 +44,7 @@ import numpy as np
 # Set environment variables to resolve OpenMP runtime conflict and disable oneDNN custom operations
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
-os.environ["OPENAI_API_KEY"] = "" #make sure to insert your own API key here
+# os.environ["OPENAI_API_KEY"] = "" #make sure to insert your own API key here
 
 class BaselineModel(nn.Module):
     def __init__(self, num_classes: int, model_type = 'shuffleNet'):
