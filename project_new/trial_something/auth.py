@@ -708,12 +708,17 @@ def identify():
             #GET THE ADR REPORT STATISTICS FOR SPECIFIC MEDICATION
             csv_file_path = os.path.join(os.path.dirname(__file__), 'ADRdata.csv')
             df = pd.read_csv(csv_file_path, delimiter='\t')
+            print(f"CSV file path: {csv_file_path}")
+
+            if not os.path.exists(csv_file_path):
+                print(f"File not found: {csv_file_path}")
+            else:
+                print(f"File found: {csv_file_path}")
 
             # Define the specific string you're looking for
             specific_string = Medication.upper()
-            print(df.columns)
             # Filter rows where the DRUGNAME column contains the specific string
-            # filtered_df = df[df['DRUGNAME'].str.contains(specific_string, case=False, na=False)]
+            filtered_df = df[df['DRUGNAME'].str.contains(specific_string, case=False, na=False)]
 
             # ---- GET AGE INFORMATION -----
             # Define age bins and labels for grouping
