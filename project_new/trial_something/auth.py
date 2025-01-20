@@ -708,8 +708,16 @@ def identify():
             #GET THE ADR REPORT STATISTICS FOR SPECIFIC MEDICATION
             csv_file_path = os.path.join(os.path.dirname(__file__), 'ADRdata.csv')
             df = pd.read_csv(csv_file_path, delimiter='\t')
-            print(df.head())
-            print(df.columns)
+            try:
+                df = pd.read_csv(csv_file_path, delimiter='\t', header=0)  # Ensure the first row is used as column names
+                # Print the first few rows to inspect the data
+                print("CSV file read successfully. Here are the first few rows:")
+                print(df.head())
+                # Print column names to verify
+                print("Column names in the CSV file:")
+                print(df.columns)
+            except Exception as e:
+                print(f"Error reading CSV file: {e}")
 
             # Define the specific string you're looking for
             specific_string = Medication.upper()
