@@ -711,7 +711,7 @@ def identify():
 
             # Define the specific string you're looking for
             specific_string = Medication.upper()
-
+            print(df.columns)
             # Filter rows where the DRUGNAME column contains the specific string
             filtered_df = df[df['DRUGNAME'].str.contains(specific_string, case=False, na=False)]
 
