@@ -612,7 +612,7 @@ def identify():
 
 
         # Process the label file if the 'label' button was clicked and a file was uploaded
-        elif button_clicked2 == 'pill' and image_file and image_file.filename != '':
+        # elif button_clicked2 == 'pill' and image_file and image_file.filename != '':
             image_filename = secure_filename(image_file.filename)
             image_filepath = os.path.join('/tmp', image_filename)
             image_file.save(image_filepath)
