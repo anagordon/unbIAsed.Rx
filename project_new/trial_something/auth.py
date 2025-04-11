@@ -31,8 +31,8 @@ from albumentations import (
     Rotate, ShiftScaleRotate, Transpose
 )
 from albumentations.pytorch import ToTensorV2
-from trial_something.views import get_model
-# from .utils import get_model
+# from trial_something.views import get_model
+from .utils import get_model
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 import openai
@@ -513,12 +513,12 @@ def identify():
             drug_search = request.form.get('drugRiskInput')
         elif drug_menu == 'select':
             drug_search = request.form.get('selectDrug')
-        else:
-            flash('Please select a valid option', 'error')
-            user_agent = request.headers.get('User-Agent').lower()
-            if 'mobile' in user_agent:
-                return render_template("identify-mobile.html", user=current_user,meds=meds)
-            return render_template("identify.html", user=current_user,meds=meds)
+        # else:
+        #     flash('Please select a valid option', 'error')
+        #     user_agent = request.headers.get('User-Agent').lower()
+        #     if 'mobile' in user_agent:
+        #         return render_template("identify-mobile.html", user=current_user,meds=meds)
+        #     return render_template("identify.html", user=current_user,meds=meds)
 
         disease_search = request.form.get('diseaseRisk')
         button_clicked3 = request.form.get('submit-button3')
