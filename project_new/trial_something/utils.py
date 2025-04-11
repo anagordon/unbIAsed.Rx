@@ -4,7 +4,7 @@ import os
 import pandas as pd
 import pickle
 import numpy as np
-from .views import get_study_ids, get_study, sort  # Import other helper functions if needed
+from trial_something.views import get_study_ids, get_study, sort  # Import other helper functions if needed
 
 def get_model(drug, disease):
     model_file_path = os.path.join(os.path.dirname(__file__), 'regression_model.pkl')
