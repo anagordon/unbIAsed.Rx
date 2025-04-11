@@ -17,7 +17,7 @@ import re
 from fuzzywuzzy import process
 from requests.exceptions import ChunkedEncodingError, ConnectionError, Timeout
 import time
-from .utils import get_model
+# from .utils import get_model
 
 views = Blueprint('views', __name__)
 
