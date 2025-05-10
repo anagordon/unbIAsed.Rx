@@ -615,34 +615,34 @@ def identify():
 
         # Process the label file if the 'label' button was clicked and a file was uploaded
         # elif button_clicked2 == 'pill' and image_file and image_file.filename != '':
-            image_filename = secure_filename(image_file.filename)
-            image_filepath = os.path.join('/tmp', image_filename)
-            image_file.save(image_filepath)
+            # image_filename = secure_filename(image_file.filename)
+            # image_filepath = os.path.join('/tmp', image_filename)
+            # image_file.save(image_filepath)
 
-            # Define the class dictionary
-            class_dict = {'Alaxan': 0, 'Bactidol': 1, 'Biogesic': 2, 'Lamictal': 4, 'DayZinc': 3, 'Rivaroxaban': 5,
-                'Fish Oil': 6, 'Kremil S': 7, 'Medicol': 8, 'Neozep': 9}
+            # # Define the class dictionary
+            # class_dict = {'Alaxan': 0, 'Bactidol': 1, 'Biogesic': 2, 'Lamictal': 4, 'DayZinc': 3, 'Rivaroxaban': 5,
+            #     'Fish Oil': 6, 'Kremil S': 7, 'Medicol': 8, 'Neozep': 9}
             
-            # Create a reverse dictionary
-            reverse_class_dict = {v: k for k, v in class_dict.items()}
+            # # Create a reverse dictionary
+            # reverse_class_dict = {v: k for k, v in class_dict.items()}
 
-            # Example usage
-            #model_path = r'C:\Users\anbgo\coding_projects_flask\GitHub-Rx\project_new\trial_something\resnet50-2.pt'
-            model_path = os.path.join(BASE_DIR, 'resnet50-2.pt')
-            input_width = 224  # Replace with your model's input width
-            input_height = 224  # Replace with your model's input height
-            predicted_class = predict_with_cnn(image_filepath, model_path, input_width, input_height)
-            predicted_class_name = reverse_class_dict[predicted_class]
-            # print(f"Predicted class: {predicted_class_name}")
-            pill = predicted_class_name + " has been found!"
+            # # Example usage
+            # #model_path = r'C:\Users\anbgo\coding_projects_flask\GitHub-Rx\project_new\trial_something\resnet50-2.pt'
+            # model_path = os.path.join(BASE_DIR, 'resnet50-2.pt')
+            # input_width = 224  # Replace with your model's input width
+            # input_height = 224  # Replace with your model's input height
+            # predicted_class = predict_with_cnn(image_filepath, model_path, input_width, input_height)
+            # predicted_class_name = reverse_class_dict[predicted_class]
+            # # print(f"Predicted class: {predicted_class_name}")
+            # pill = predicted_class_name + " has been found!"
 
-            # flash('Pill successfully identified', 'success')
-            # os.remove(image_filepath)
+            # # flash('Pill successfully identified', 'success')
+            # # os.remove(image_filepath)
 
-            user_agent = request.headers.get('User-Agent').lower()
-            if 'mobile' in user_agent:
-                return render_template("identify-mobile.html", user=current_user, text=text, word=word, something=something, pill=pill,meds=meds, errorFlash=errorFlash) 
-            return render_template("identify.html", user=current_user, text=text, word=word, something=something, pill=pill,meds=meds, errorFlash=errorFlash)
+            # user_agent = request.headers.get('User-Agent').lower()
+            # if 'mobile' in user_agent:
+            #     return render_template("identify-mobile.html", user=current_user, text=text, word=word, something=something, pill=pill,meds=meds, errorFlash=errorFlash) 
+            # return render_template("identify.html", user=current_user, text=text, word=word, something=something, pill=pill,meds=meds, errorFlash=errorFlash)
         
         elif button_clicked2 == 'risk-btn':
             #variables for risk
@@ -794,8 +794,7 @@ def identify():
                     embeddings.extend(sentence_embedding_normalized.cpu().numpy().astype('float32'))
 
                 return embeddings
-
-                    
+       
             # Load FAISS index and metadata
             index_file_path = os.path.join(os.path.dirname(__file__), 'merged_index_19000.index')
             index = faiss.read_index(index_file_path)
@@ -931,10 +930,9 @@ def identify():
 
             user_agent = request.headers.get('User-Agent').lower()
             if 'mobile' in user_agent:
-                return render_template("identify-mobile.html", user=current_user, result=result) 
-            return render_template("identify.html", user=current_user, result=result)
-
-
+                return render_template("identify-mobile.html", errorFlash=errorFlash, user=current_user, text=text, word=word, something=something, result_string=result_string,meds=meds, result=result) 
+            return render_template("identify.html", errorFlash=errorFlash, user=current_user, text=text, word=word, something=something, result_string=result_string,meds=meds, result=result)
+            
         elif button_clicked3 == 'risk':
             #old code starts here
             drug_search = drug_search.upper()
