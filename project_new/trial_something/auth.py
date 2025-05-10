@@ -909,7 +909,7 @@ def identify():
 
             # Print the response
             result = response['choices'][0]['message']['content']
-            # print("ChatGPT Response: \n\n", answer)
+            print("ChatGPT Response: \n\n", result)
 
             # Flatten trial_ids and remove any unwanted formatting
             cleaned_trial_ids = []
