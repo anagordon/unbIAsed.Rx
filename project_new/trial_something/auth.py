@@ -475,7 +475,7 @@ def identify():
     result_string = ""
     errorFlash = False
     flash_message_label = ""
-    flash_message_pill = ""
+    # flash_message_pill = ""
     flash_message_risk = ""
     result = ""
 
@@ -501,12 +501,12 @@ def identify():
         #     "ADR_statistics": ""
         # }
         use_new_model = request.form.get('new_model')
-        image_file = request.files.get('uploaded-pill-image')
+        # image_file = request.files.get('uploaded-pill-image')
         label_file = request.files.get('uploaded-label-image')
 
         button_clicked1 = request.form.get('submit-button1')
-        button_clicked2 = request.form.get('submit-button2')
-        # button_clicked3 = request.form.get('submit-button3')
+        # button_clicked2 = request.form.get('submit-button2')
+        button_clicked3 = request.form.get('submit-button3')
 
         drug_search = ""
         drug_menu = request.form.get('drugRiskSelect')
