@@ -477,7 +477,7 @@ def identify():
     flash_message_label = ""
     flash_message_pill = ""
     flash_message_risk = ""
-    # result = ""
+    result = ""
 
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # Get the directory of the current file
     csv_file = os.path.join(BASE_DIR, 'final_results.csv')  # Join the base directory with the file name
@@ -487,19 +487,19 @@ def identify():
     
     
     if request.method == 'POST':
-        # #variables for risk
-        # Medication = request.form.get('Medication')
-        # Age = request.form.get('Age')
-        # Sex = request.form.get('Sex')
-        # Disease = request.form.get('Disease')
-        # Ethnicity = request.form.get('Ethnicity')
+        #variables for risk
+        Medication = request.form.get('Medication')
+        Age = request.form.get('Age')
+        Sex = request.form.get('Sex')
+        Disease = request.form.get('Disease')
+        Ethnicity = request.form.get('Ethnicity')
 
-        # # Initialize the results dictionary
-        # results_dict = {
-        #     "Clinical_trial_data": "",
-        #     "Relevant_ADR_reports": "",
-        #     "ADR_statistics": ""
-        # }
+        # Initialize the results dictionary
+        results_dict = {
+            "Clinical_trial_data": "",
+            "Relevant_ADR_reports": "",
+            "ADR_statistics": ""
+        }
 
         image_file = request.files.get('uploaded-pill-image')
         label_file = request.files.get('uploaded-label-image')
