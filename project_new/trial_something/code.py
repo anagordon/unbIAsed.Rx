@@ -337,10 +337,10 @@ def new_model():
 
         user_agent = request.headers.get('User-Agent').lower()
         if 'mobile' in user_agent:
-            return render_template('new_model-mobile.html', result=result)
-        return render_template('new_model.html', result=result)
+            return render_template('new_model-mobile.html', user=current_user, result=result)
+        return render_template('new_model.html', user=current_user, result=result)
    
     user_agent = request.headers.get('User-Agent').lower()
     if 'mobile' in user_agent:
-        return render_template('new_model-mobile.html')
-    return render_template('new_model.html')
+        return render_template('new_model-mobile.html', user=current_user)
+    return render_template('new_model.html', user=current_user)
