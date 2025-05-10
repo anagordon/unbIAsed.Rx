@@ -501,6 +501,9 @@ def identify():
         #     "ADR_statistics": ""
         # }
         use_new_model = request.form.get('new_model')
+        if use_new_model == 'new_model_value':
+            return redirect(url_for('code.new_model'))
+
         # image_file = request.files.get('uploaded-pill-image')
         label_file = request.files.get('uploaded-label-image')
 
@@ -933,9 +936,6 @@ def identify():
         #         return render_template("identify-mobile.html", errorFlash=errorFlash, user=current_user, text=text, word=word, something=something, result_string=result_string,meds=meds, result=result) 
         #     return render_template("identify.html", errorFlash=errorFlash, user=current_user, text=text, word=word, something=something, result_string=result_string,meds=meds, result=result)
         #new model moved to another page
-        elif use_new_model == 'new_model_value':
-            return redirect(url_for('code.new_model'))
-
 
         elif button_clicked3 == 'risk':
             #old code starts here
