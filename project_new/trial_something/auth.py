@@ -45,7 +45,7 @@ import numpy as np
 # Set environment variables to resolve OpenMP runtime conflict and disable oneDNN custom operations
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
-#os.environ["OPENAI_API_KEY"] = "" #make sure to insert your own API key here
+os.environ["OPENAI_API_KEY"] = "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" #make sure to insert your own API key here
 
 
 class BaselineModel(nn.Module):
