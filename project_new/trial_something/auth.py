@@ -31,8 +31,8 @@ from albumentations import (
     Rotate, ShiftScaleRotate, Transpose
 )
 from albumentations.pytorch import ToTensorV2
-# from trial_something.views import get_model
-from .utils import get_model
+from trial_something.views import get_model
+# from .utils import get_model
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 import openai
@@ -45,7 +45,7 @@ import numpy as np
 # Set environment variables to resolve OpenMP runtime conflict and disable oneDNN custom operations
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
-# os.environ["OPENAI_API_KEY"] = "" #make sure to insert your own API key here
+ os.environ["OPENAI_API_KEY"] = "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" #make sure to insert your own API key here
 
 
 class BaselineModel(nn.Module):
@@ -504,10 +504,14 @@ def identify():
 
         image_file = request.files.get('uploaded-pill-image')
         label_file = request.files.get('uploaded-label-image')
+
         button_clicked1 = request.form.get('submit-button1')
         button_clicked2 = request.form.get('submit-button2')
+        button_clicked3 = request.form.get('submit-button3')
+
         drug_search = ""
         drug_menu = request.form.get('drugRiskSelect')
+        disease_search = request.form.get('diseaseRisk')
 
         if drug_menu == 'input':
             drug_search = request.form.get('drugRiskInput')
@@ -519,10 +523,6 @@ def identify():
         #     if 'mobile' in user_agent:
         #         return render_template("identify-mobile.html", user=current_user,meds=meds)
         #     return render_template("identify.html", user=current_user,meds=meds)
-
-        disease_search = request.form.get('diseaseRisk')
-        button_clicked3 = request.form.get('submit-button3')
-        button_clicked2 = request.form.get('submit-button2')
 
         # Check if at least one file was uploaded
         # if image_file is None and label_file is None: #and drug_search == '' and disease_search == ''
@@ -537,23 +537,24 @@ def identify():
         #         return render_template("identify-mobile.html", flash_message_pill = flash_message_pill,  flash_message_label = flash_message_label, user=current_user,meds=meds, errorFlash=errorFlash)  
         #     return render_template("identify.html", flash_message_pill = flash_message_pill, flash_message_label = flash_message_label, user=current_user,meds=meds, errorFlash=errorFlash)
 
-        if image_file is None and (drug_search is None and disease_search is None): #pill
-            errorFlash = True
-            flash_message_pill = 'An image file must be uploaded'
+        # if image_file is None and (drug_search is None and disease_search is None): #pill
+        #     errorFlash = True
+        #     flash_message_pill = 'An image file must be uploaded'
 
-            user_agent = request.headers.get('User-Agent').lower()
-            if 'mobile' in user_agent:
-                return render_template("identify-mobile.html", flash_message_pill = flash_message_pill, user=current_user,meds=meds, errorFlash=errorFlash)  
-            return render_template("identify.html", flash_message_pill = flash_message_pill, user=current_user,meds=meds, errorFlash=errorFlash)
+        #     user_agent = request.headers.get('User-Agent').lower()
+        #     if 'mobile' in user_agent:
+        #         return render_template("identify-mobile.html", flash_message_pill = flash_message_pill, user=current_user,meds=meds, errorFlash=errorFlash)  
+        #     return render_template("identify.html", flash_message_pill = flash_message_pill, user=current_user,meds=meds, errorFlash=errorFlash)
 
-        if label_file is None and (drug_search is None and disease_search is None): #label
-            errorFlash = True
-            flash_message_label = 'A label file must be uploaded'
+        # double check about this one 
+        # if label_file is None and (drug_search is None and disease_search is None): #label
+        #     errorFlash = True
+        #     flash_message_label = 'A label file must be uploaded'
 
-            user_agent = request.headers.get('User-Agent').lower()
-            if 'mobile' in user_agent:
-                return render_template("identify-mobile.html", flash_message_label = flash_message_label, user=current_user,meds=meds, errorFlash=errorFlash)
-            return render_template("identify.html", flash_message_label = flash_message_label, user=current_user,meds=meds, errorFlash=errorFlash)
+        #     user_agent = request.headers.get('User-Agent').lower()
+        #     if 'mobile' in user_agent:
+        #         return render_template("identify-mobile.html", flash_message_label = flash_message_label, user=current_user,meds=meds, errorFlash=errorFlash)
+        #     return render_template("identify.html", flash_message_label = flash_message_label, user=current_user,meds=meds, errorFlash=errorFlash)
 
         # Process the image file if the 'image' button was clicked and a file was uploaded
         if button_clicked1 == 'label' and label_file and label_file.filename != '':
@@ -645,7 +646,6 @@ def identify():
             return render_template("identify.html", user=current_user, text=text, word=word, something=something, pill=pill,meds=meds, errorFlash=errorFlash)
         
         elif button_clicked2 == 'risk-btn':
-            #new code starts here
             #variables for risk
             Medication = request.form.get('Medication')
             Age = request.form.get('Age')
@@ -930,10 +930,13 @@ def identify():
 
             result = result + part1 + part2
 
+            user_agent = request.headers.get('User-Agent').lower()
+            if 'mobile' in user_agent:
+                return render_template("identify-mobile.html", user=current_user, result=result) 
+            return render_template("identify.html", user=current_user, result=result)
+
 
         elif button_clicked3 == 'risk':
-            
-            
             #old code starts here
             drug_search = drug_search.upper()
             disease_search = disease_search.upper()
