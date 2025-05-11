@@ -112,11 +112,15 @@ def new_model():
                 print("Request was successful.")
                 try:
                     data = response.json()
+                    print("Data received from API:", data)
                     studies = data.get('studies', [])
+                    print("Number of studies found:", len(studies))
+
 
                     # Collect clinical trial data as a string
                     clinical_trial_data = []
                     for idx, study_data in enumerate(studies):
+                        print(f"Processing study {idx + 1}...")
                         study = DotDict(study_data)
                         try:
                             # Check if the required nested attributes are present
@@ -129,12 +133,14 @@ def new_model():
                                 clinical_trial_data.append(f"{study.protocolSection.eligibilityModule}\n")
                                 clinical_trial_data.append(f"{study.resultsSection.baselineCharacteristicsModule.measures}\n\n")
                         except (KeyError, AttributeError):
+                            print(f"Error processing study {idx + 1}: Missing expected attributes.")
                             continue
                     results_dict["Clinical_trial_data"] = ''.join(clinical_trial_data)  # Save clinical trial data as string
-
+                    print("Clinical trial data collected successfully.")
                 except requests.exceptions.JSONDecodeError:
                     print("Failed to decode JSON. Here is the raw response:")
                     # print(response.text)
+                    return "An error occurred while processing the JSON response.", 500
             else:
                 print(f"Request failed with status code: {response.status_code}")
                 # print(response.text)
