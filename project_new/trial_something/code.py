@@ -146,7 +146,17 @@ def new_model():
                 # print(response.text)
 
             #GET THE ADR REPORT STATISTICS FOR SPECIFIC MEDICATION
-            csv_file_path = os.path.join(os.path.dirname(__file__), 'ADRdata.csv')
+            try:
+                df = pd.read_csv(csv_file_path, delimiter='\t')
+                print("ADR data loaded successfully. DataFrame shape:", df.shape)
+            except Exception as e:
+                print(f"Error loading ADR data: {e}")
+                return "An error occurred while loading ADR data.", 500
+            required_columns = ['DRUGNAME', 'AGE_Y', 'GENDER_ENG', 'SERIOUSNESS_ENG']
+            missing_columns = [col for col in required_columns if col not in df.columns]
+            if missing_columns:
+                print(f"Missing required columns in ADR data: {missing_columns}")
+                return f"Missing required columns in ADR data: {', '.join(missing_columns)}", 500
             print("CSV file path: ", csv_file_path)
             print("Medication: ", Medication)
 
