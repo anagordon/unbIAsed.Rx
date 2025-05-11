@@ -154,7 +154,7 @@ def new_model():
 
             # Filter rows where the DRUGNAME column contains the specific string
             filtered_df = df[df['DRUGNAME'].str.contains(specific_string, case=False, na=False)]
-
+            print(f"Filtered DataFrame shape: {filtered_df.shape}")
             # ---- GET AGE INFORMATION -----
             # Define age bins and labels for grouping
             age_bins = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, float('inf')]
@@ -189,7 +189,7 @@ def new_model():
 
             # Combine all sentences into one string and save to ADR_statistics key
             results_dict["ADR_statistics"] = f"{age_group_sentence}\n{gender_sentence}\n{seriousness_sentence}"
-
+            print("Results dictionary updated with ADR statistics: ", results_dict["ADR_statistics"])
             #GET MOST RELEVANT ADR REPORTS
             #Load BERT model and tokenizer
             # tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
@@ -219,6 +219,7 @@ def new_model():
                     embeddings.extend(sentence_embedding_normalized.cpu().numpy().astype('float32'))
 
                 return embeddings
+                print("Sentence embeddings generated successfully.")
 
                     
             # Load FAISS index and metadata
@@ -267,6 +268,9 @@ def new_model():
                         break
 
                 return similar_sentences, distances[0]
+                print("Query executed successfully.")
+                print("Similar sentences:", similar_sentences)
+                print("Distances:", distances[0])
 
             # Query the database
             query_sentence = f"{Sex} {Age} {Medication} {Disease}"
@@ -285,6 +289,7 @@ def new_model():
 
             # Add to the dictionary under the "Relevant_ADR_reports" key
             results_dict["Relevant_ADR_reports"] = formatted_results
+            print("Relevant ADR reports collected successfully.")
 
             #CHATGPT QUERY
             openai.api_key = os.getenv("OPENAI_API_KEY")
