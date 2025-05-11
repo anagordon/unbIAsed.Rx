@@ -157,6 +157,8 @@ def new_model():
         
         chunk_size = 10000  # Number of rows per chunk
         filtered_chunks = []
+        specific_string = Medication.upper()
+
 
         print("Loading CSV file in chunks...")
         for chunk in pd.read_csv(csv_file_path, delimiter='\t', chunksize=chunk_size):
@@ -165,16 +167,16 @@ def new_model():
             filtered_chunks.append(filtered_chunk)
 
         # Combine all filtered chunks into a single DataFrame
-        df = pd.concat(filtered_chunks, ignore_index=True)
-        print(f"Filtered DataFrame shape: {df.shape}")
+        filtered_df = pd.concat(filtered_chunks, ignore_index=True)
+        print(f"Filtered DataFrame shape: {filtered_df.shape}")
 
         # df = pd.read_csv(csv_file_path, delimiter='\t')
 
         # Define the specific string you're looking for
-        specific_string = Medication.upper()
+        # specific_string = Medication.upper()
 
         # Filter rows where the DRUGNAME column contains the specific string
-        filtered_df = df[df['DRUGNAME'].str.contains(specific_string, case=False, na=False)]
+        # filtered_df = df[df['DRUGNAME'].str.contains(specific_string, case=False, na=False)]
 
         # ---- GET AGE INFORMATION -----
         # Define age bins and labels for grouping
