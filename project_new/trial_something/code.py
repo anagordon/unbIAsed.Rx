@@ -36,6 +36,7 @@ import os
 import requests
 import json
 import difflib
+from transformers.utils import logging
 
 # Download NLTK stopwords
 nltk.download('stopwords')
@@ -217,16 +218,19 @@ def new_model():
         #Load BERT model and tokenizer
         # tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
         # model = BertForSequenceClassification.from_pretrained('bert-base-uncased', output_hidden_states=True)
-
+        logging.set_verbosity_info()  # Set logging level to INFO
         model_str = "NeuML/pubmedbert-base-embeddings"
+        cache_dir = "./cache"  # Specify the cache directory
+        os.makedirs(cache_dir, exist_ok=True)  # Create the cache directory if it doesn't exist
+        logging.set_verbosity_error()  # Suppress warnings from transformers library
         # tokenizer = AutoTokenizer.from_pretrained(model_str)
         # model = AutoModel.from_pretrained(model_str)
         # print("Model and tokenizer loaded successfully.")
         try:
             print("Loading tokenizer...")
-            tokenizer = AutoTokenizer.from_pretrained(model_str)
+            tokenizer = AutoTokenizer.from_pretrained(model_str, cache_dir=cache_dir)
             print("Loading model...")
-            model = AutoModel.from_pretrained(model_str)
+            model = AutoModel.from_pretrained(model_str, cache_dir=cache_dir)
             print("Model and tokenizer loaded successfully.")
         except Exception as e:
             print(f"Error loading model or tokenizer: {e}")
