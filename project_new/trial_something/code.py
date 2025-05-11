@@ -8,14 +8,12 @@ import os
 import numpy as np
 import seaborn as sns
 import tensorflow_hub as hub
-from flask_login import current_user
 import faiss
 # import torch.nn as nn
 import re
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
-import time
 
 # Set environment variables to resolve OpenMP runtime conflict and disable oneDNN custom operations
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
