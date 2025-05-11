@@ -1047,9 +1047,9 @@ def identify():
                 errorFlash = True
                 flash_message_label = 'No file was uploaded'
                 # flash('No file was uploaded', 'error')
-            if button_clicked2 == 'pill' and not image_file:
-                errorFlash = True
-                flash_message_pill = 'No file was uploaded'
+            # if button_clicked2 == 'pill' and not image_file:
+            #     errorFlash = True
+            #     flash_message_pill = 'No file was uploaded'
 
                 # flash('No file was uploaded', 'error')
             if (drug_search == '' or disease_search == '') and button_clicked3 == 'risk':
