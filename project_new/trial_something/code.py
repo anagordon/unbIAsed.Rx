@@ -184,10 +184,10 @@ def new_model():
         age_labels = ['0-10', '10-20', '20-30', '30-40', '40-50', '50-60', '60-70', '70-80', '80-90', '90-100', '100+']
 
         # Categorize ages into bins
-        df['AGE_GROUP'] = pd.cut(df['AGE_Y'], bins=age_bins, labels=age_labels, right=False)
+        filtered_df['AGE_GROUP'] = pd.cut(filtered_df['AGE_Y'], bins=age_bins, labels=age_labels, right=False)
 
         # Count occurrences for each age group and calculate percentages
-        age_group_counts = df['AGE_GROUP'].value_counts().sort_index()
+        age_group_counts = filtered_df['AGE_GROUP'].value_counts().sort_index()
         age_group_percentages = (age_group_counts / age_group_counts.sum()) * 100
 
         # Select the top 3 age groups by count
@@ -195,7 +195,7 @@ def new_model():
         age_group_sentence = f"The patients with the highest rate of reported drug reaction for this medicine are \"{top_3_age_groups[0]}\" then \"{top_3_age_groups[1]}\" then \"{top_3_age_groups[2]}\"."
 
         # ----- GET SEX INFORMATION ------
-        gender_counts = df['GENDER_ENG'].value_counts()
+        gender_counts = filtered_df['GENDER_ENG'].value_counts()
         gender_percentages = (gender_counts / gender_counts.sum()) * 100
 
         female_percentage = gender_percentages.get('Female', 0)
@@ -203,7 +203,7 @@ def new_model():
         gender_sentence = f"Out of all the reports, {female_percentage:.2f}% were women's and {male_percentage:.2f}% were men's."
 
         # ----- GET SERIOUSNESS INFORMATION -----
-        seriousness_counts = df['SERIOUSNESS_ENG'].value_counts()
+        seriousness_counts = filtered_df['SERIOUSNESS_ENG'].value_counts()
         seriousness_percentages = (seriousness_counts / seriousness_counts.sum()) * 100
 
         serious_percentage = seriousness_percentages.get('Serious', 0)
