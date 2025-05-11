@@ -220,19 +220,18 @@ def new_model():
         # model = BertForSequenceClassification.from_pretrained('bert-base-uncased', output_hidden_states=True)
         logging.set_verbosity_info()  # Set logging level to INFO
         model_str = "NeuML/pubmedbert-base-embeddings"
-        timeout = 300
-        # tokenizer = AutoTokenizer.from_pretrained(model_str)
-        # model = AutoModel.from_pretrained(model_str)
+        tokenizer = AutoTokenizer.from_pretrained(model_str)
+        model = AutoModel.from_pretrained(model_str)
         # print("Model and tokenizer loaded successfully.")
-        try:
-            print("Loading tokenizer...")
-            tokenizer = AutoTokenizer.from_pretrained(model_str)
-            print("Loading model...")
-            model = AutoModel.from_pretrained(model_str)
-            print("Model and tokenizer loaded successfully.")
-        except Exception as e:
-            print(f"Error loading model or tokenizer: {e}")
-            return "An error occurred while loading the model or tokenizer.", 500
+        # try:
+        #     print("Loading tokenizer...")
+        #     tokenizer = AutoTokenizer.from_pretrained(model_str)
+        #     print("Loading model...")
+        #     model = AutoModel.from_pretrained(model_str)
+        #     print("Model and tokenizer loaded successfully.")
+        # except Exception as e:
+        #     print(f"Error loading model or tokenizer: {e}")
+        #     return "An error occurred while loading the model or tokenizer.", 500
 
         # Function to get sentence embeddings
         def get_sentence_embedding(sentences):
