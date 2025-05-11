@@ -146,17 +146,41 @@ def new_model():
                 # print(response.text)
 
             #GET THE ADR REPORT STATISTICS FOR SPECIFIC MEDICATION
+            # GET THE ADR REPORT STATISTICS FOR SPECIFIC MEDICATION
             try:
+                # Define the path to the ADRdata.csv file
+                csv_file_path = os.path.join(os.path.dirname(__file__), 'ADRdata.csv')
+                print("CSV file path: ", csv_file_path)
+
+                # Check if the file exists
+                if not os.path.exists(csv_file_path):
+                    print(f"CSV file not found: {csv_file_path}")
+                    return "Required ADR data file is missing.", 500
+
+                # Load the CSV file
                 df = pd.read_csv(csv_file_path, delimiter='\t')
                 print("ADR data loaded successfully. DataFrame shape:", df.shape)
+
+                # Check for required columns
+                required_columns = ['DRUGNAME', 'AGE_Y', 'GENDER_ENG', 'SERIOUSNESS_ENG']
+                missing_columns = [col for col in required_columns if col not in df.columns]
+                if missing_columns:
+                    print(f"Missing required columns in ADR data: {missing_columns}")
+                    return f"Missing required columns in ADR data: {', '.join(missing_columns)}", 500
+
+                # Filter rows where the DRUGNAME column contains the specific string
+                specific_string = Medication.upper()
+                filtered_df = df[df['DRUGNAME'].str.contains(specific_string, case=False, na=False)]
+                print(f"Filtered DataFrame shape: {filtered_df.shape}")
+
+                if filtered_df.empty:
+                    print("No ADR data found for the specified medication.")
+                    return "No ADR data found for the specified medication.", 404
+
             except Exception as e:
                 print(f"Error loading ADR data: {e}")
                 return "An error occurred while loading ADR data.", 500
-            required_columns = ['DRUGNAME', 'AGE_Y', 'GENDER_ENG', 'SERIOUSNESS_ENG']
-            missing_columns = [col for col in required_columns if col not in df.columns]
-            if missing_columns:
-                print(f"Missing required columns in ADR data: {missing_columns}")
-                return f"Missing required columns in ADR data: {', '.join(missing_columns)}", 500
+          
             print("CSV file path: ", csv_file_path)
             print("Medication: ", Medication)
 
