@@ -20,8 +20,17 @@
 <div class="container">
     <br>
 
+    <!-- Note for users -->
+    <div class="alert alert-info text-center" role="alert">
+        <strong>Note:</strong> This feature is under development. Come back soon for the working version!
+    </div>
+
     <form id="label-identify-form" enctype="multipart/form-data" method="POST" action="#label-identify-form" class="mb-3">
         <div>
+            <!-- Back Button -->
+            <form method="GET" action="/identify">
+                <button type="submit" class="btn btn-secondary">Back</button>
+            </form>
             <h2 class="display-6 text-center my-3">Risk Calculator</h2>
 
             <div class="mb-3">
@@ -43,11 +52,6 @@
     </form>   
 
     <br>
-
-    <!-- Back Button -->
-    <form method="GET" action="/identify">
-        <button type="submit" class="btn btn-secondary">Back</button>
-    </form>
 
 </div>
 
