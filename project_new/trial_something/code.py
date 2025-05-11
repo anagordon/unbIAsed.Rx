@@ -20,7 +20,6 @@ from urllib3.util.retry import Retry
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
 os.environ["OPENAI_API_KEY"] = "" #make sure to insert your own API key here
-os.environ["FLASK_APP"] = "main.py"
 
 code = Blueprint('code', __name__)
 
