@@ -220,17 +220,15 @@ def new_model():
         # model = BertForSequenceClassification.from_pretrained('bert-base-uncased', output_hidden_states=True)
         logging.set_verbosity_info()  # Set logging level to INFO
         model_str = "NeuML/pubmedbert-base-embeddings"
-        cache_dir = "./cache"  # Specify the cache directory
-        os.makedirs(cache_dir, exist_ok=True)  # Create the cache directory if it doesn't exist
-        logging.set_verbosity_error()  # Suppress warnings from transformers library
+        timeout = 300
         # tokenizer = AutoTokenizer.from_pretrained(model_str)
         # model = AutoModel.from_pretrained(model_str)
         # print("Model and tokenizer loaded successfully.")
         try:
             print("Loading tokenizer...")
-            tokenizer = AutoTokenizer.from_pretrained(model_str, cache_dir=cache_dir)
+            tokenizer = AutoTokenizer.from_pretrained(model_str, timeout=timeout)
             print("Loading model...")
-            model = AutoModel.from_pretrained(model_str, cache_dir=cache_dir)
+            model = AutoModel.from_pretrained(model_str, timeout=timeout)
             print("Model and tokenizer loaded successfully.")
         except Exception as e:
             print(f"Error loading model or tokenizer: {e}")
