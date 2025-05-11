@@ -938,7 +938,7 @@ def identify():
         #         return render_template("identify-mobile.html", errorFlash=errorFlash, user=current_user, text=text, word=word, something=something, result_string=result_string,meds=meds, result=result) 
         #     return render_template("identify.html", errorFlash=errorFlash, user=current_user, text=text, word=word, something=something, result_string=result_string,meds=meds, result=result)
         #new model moved to another page
-        elif sub == 'risk':
+        elif submit_button == 'risk':
             # Variables
             Medication = request.form.get('Medication')
             Age = request.form.get('Age')
