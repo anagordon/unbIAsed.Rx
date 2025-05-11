@@ -15,6 +15,49 @@ import re
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
+import os
+import re
+import json
+from flask import Blueprint, jsonify, render_template, request, flash, redirect, session, url_for
+import pandas as pd
+from .models import User, Drugs
+from werkzeug.security import generate_password_hash, check_password_hash
+from . import db   #means from __init__.py import db
+from flask_login import login_user, login_required, logout_user, current_user
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField, ValidationError
+from wtforms.validators import DataRequired, Email
+from werkzeug.utils import secure_filename
+from fuzzywuzzy import process
+import pytesseract
+import cv2
+import nltk
+from nltk.corpus import stopwords
+from nltk.stem import PorterStemmer
+nltk.download('stopwords')
+import difflib
+from sqlalchemy import or_
+import torch
+import requests
+import torch.nn as nn
+import torch
+from torchvision.models import shufflenet_v2_x0_5, ShuffleNet_V2_X0_5_Weights
+import timm
+from albumentations import (
+    Compose, Normalize, Resize, RandomResizedCrop, RandomCrop, HorizontalFlip, VerticalFlip,
+    Rotate, ShiftScaleRotate, Transpose
+)
+from albumentations.pytorch import ToTensorV2
+from trial_something.views import get_model
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
+import openai
+from transformers import BertTokenizer, BertModel, BertForSequenceClassification, AutoTokenizer, AutoModel
+import seaborn as sns
+import tensorflow_hub as hub
+import faiss
+import numpy as np
+
 
 # Set environment variables to resolve OpenMP runtime conflict and disable oneDNN custom operations
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
