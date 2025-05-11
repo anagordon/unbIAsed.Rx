@@ -154,12 +154,21 @@ def new_model():
 
         #GET THE ADR REPORT STATISTICS FOR SPECIFIC MEDICATION
         csv_file_path = os.path.join(os.path.dirname(__file__), 'ADRdata.csv')
-        with open(csv_file_path, 'r') as file:
-            first_line = file.readline()
-            if "version https://git-lfs.github.com/spec/v1" in first_line:
-                print("Error: File is a Git LFS pointer. Run 'git lfs pull' to download the actual file.")
-                return "ADR data file is not properly downloaded.", 500
-        df = pd.read_csv(csv_file_path, delimiter='\t')
+        
+        chunk_size = 10000  # Number of rows per chunk
+        filtered_chunks = []
+
+        print("Loading CSV file in chunks...")
+        for chunk in pd.read_csv(csv_file_path, delimiter='\t', chunksize=chunk_size):
+            # Filter rows in the current chunk
+            filtered_chunk = chunk[chunk['DRUGNAME'].str.contains(specific_string, case=False, na=False)]
+            filtered_chunks.append(filtered_chunk)
+
+        # Combine all filtered chunks into a single DataFrame
+        df = pd.concat(filtered_chunks, ignore_index=True)
+        print(f"Filtered DataFrame shape: {df.shape}")
+
+        # df = pd.read_csv(csv_file_path, delimiter='\t')
 
         # Define the specific string you're looking for
         specific_string = Medication.upper()
