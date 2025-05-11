@@ -501,7 +501,7 @@ def identify():
         #     "ADR_statistics": ""
         # }
         use_new_model = request.form.get('new_model')
-        if use_new_model == 'new_model_value':
+        if use_new_model == 'new_model':
             return redirect(url_for('code.new_model'))
 
         # image_file = request.files.get('uploaded-pill-image')

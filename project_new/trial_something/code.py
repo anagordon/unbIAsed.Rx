@@ -46,7 +46,7 @@ def requests_retry_session(
     return session
 
 
-@code.route('/identify/new-model', methods=['GET', 'POST'])
+@code.route('/new-model', methods=['GET', 'POST'])
 def new_model():
     #Write Code Here
     try:
