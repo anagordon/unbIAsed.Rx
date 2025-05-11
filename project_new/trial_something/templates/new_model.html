@@ -1,21 +1,6 @@
 {% extends "base.html" %} {% block title %}Identify (New Model){% endblock %} 
 {% block content %}
-<!-- <style>
-    .container2 {
-        background-color: #CEE3EA;
-        padding: 20px;
-        border-radius: 10px;
-        overflow: hidden;
-    }
-    pre {
-        white-space: pre-wrap; /* CSS3 */
-        white-space: -moz-pre-wrap; /* Firefox */
-        white-space: -pre-wrap; /* Opera <7 */
-        white-space: -o-pre-wrap; /* Opera 7 */
-        word-wrap: break-word; /* IE */
-        margin: 0; /* Remove default margin */
-    }
-</style> -->
+
 
 <div class="container">
     <br>
@@ -25,12 +10,14 @@
         <strong>Note:</strong> This feature is under development. Come back soon for the working version!
     </div>
 
+    <!-- Back Button -->
+    <form method="GET" action="/identify">
+        <button type="submit" class="btn btn-secondary">Back</button>
+    </form>
+
     <form id="label-identify-form" enctype="multipart/form-data" method="POST" action="#label-identify-form" class="mb-3">
         <div>
-            <!-- Back Button -->
-            <form method="GET" action="/identify">
-                <button type="submit" class="btn btn-secondary">Back</button>
-            </form>
+           
             <h2 class="display-6 text-center my-3">Risk Calculator</h2>
 
             <div class="mb-3">
