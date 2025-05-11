@@ -147,7 +147,12 @@ def new_model():
 
             #GET THE ADR REPORT STATISTICS FOR SPECIFIC MEDICATION
             csv_file_path = os.path.join(os.path.dirname(__file__), 'ADRdata.csv')
+            print("CSV file path: ", csv_file_path)
+            print("Medication: ", Medication)
+
             df = pd.read_csv(csv_file_path, delimiter='\t')
+            print("CSV file loaded successfully.")
+            print("DataFrame shape: ", df.shape)
 
             # Define the specific string you're looking for
             specific_string = Medication.upper()
