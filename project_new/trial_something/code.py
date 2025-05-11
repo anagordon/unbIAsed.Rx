@@ -293,6 +293,8 @@ def new_model():
 
         # Query the database
         query_sentence = f"{Sex} {Age} {Medication} {Disease}"
+        print("Querying the database...")
+        print(f"Query sentence: {query_sentence}")
         # index_path = '/content/drive/My Drive/Programs/BOREALISAI/RAGModel/Data/merged_index_19000.index'
         # metadata_path = '/content/drive/My Drive/Programs/BOREALISAI/RAGModel/Data/merged_metadata_19000.csv'
         similar_sentence, distances = query_database(query_sentence, index_file_path, metadata_file_path, top_k=10)
@@ -376,6 +378,7 @@ def new_model():
         part2 = "\nAdverse drug reaction reports have been sourced from the MedEffect Canada database: https://www.canada.ca/en/health-canada/services/drugs-health-products/medeffect-canada.html\n\n"
 
         result = result + part1 + part2
+        print(result)
         return render_template('new_model.html', result=result, user =current_user)
     
     return render_template('new_model.html', user =current_user)
