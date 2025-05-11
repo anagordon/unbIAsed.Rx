@@ -226,9 +226,9 @@ def new_model():
         # print("Model and tokenizer loaded successfully.")
         try:
             print("Loading tokenizer...")
-            tokenizer = AutoTokenizer.from_pretrained(model_str, timeout=timeout)
+            tokenizer = AutoTokenizer.from_pretrained(model_str)
             print("Loading model...")
-            model = AutoModel.from_pretrained(model_str, timeout=timeout)
+            model = AutoModel.from_pretrained(model_str)
             print("Model and tokenizer loaded successfully.")
         except Exception as e:
             print(f"Error loading model or tokenizer: {e}")
