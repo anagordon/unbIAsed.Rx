@@ -212,7 +212,7 @@ def new_model():
 
         # Combine all sentences into one string and save to ADR_statistics key
         results_dict["ADR_statistics"] = f"{age_group_sentence}\n{gender_sentence}\n{seriousness_sentence}"
-
+        print(results_dict["ADR_statistics"])
         #GET MOST RELEVANT ADR REPORTS
         #Load BERT model and tokenizer
         # tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
@@ -221,6 +221,7 @@ def new_model():
         model_str = "NeuML/pubmedbert-base-embeddings"
         tokenizer = AutoTokenizer.from_pretrained(model_str)
         model = AutoModel.from_pretrained(model_str)
+        print("Model and tokenizer loaded successfully.")
 
         # Function to get sentence embeddings
         def get_sentence_embedding(sentences):
