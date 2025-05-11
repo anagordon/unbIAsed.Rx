@@ -24,7 +24,6 @@ def create_app():
     app.register_blueprint(auth, url_prefix='/')
     app.register_blueprint(code, url_prefix='/identify')
 
-
     from .models import User, Note, Drugs, Info
     
     with app.app_context():

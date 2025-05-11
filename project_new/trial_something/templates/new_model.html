@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% block title %}Identify (New Model){% endblock %} 
 {% block content %}
-<style>
+<!-- <style>
     .container2 {
         background-color: #CEE3EA;
         padding: 20px;
@@ -15,7 +15,7 @@
         word-wrap: break-word; /* IE */
         margin: 0; /* Remove default margin */
     }
-</style>
+</style> -->
 
 <div class="container">
     <br>
@@ -31,7 +31,6 @@
                 <input class="form-control" type="text" id="Sex" name="Sex" placeholder="Sex" required><br>
                 <input class="form-control" type="text" id="Disease" name="Disease" placeholder="Disease" required><br>
                 <input class="form-control" type="text" id="Ethnicity" name="Ethnicity" placeholder="Ethnicity" required>
-
             </div>
 
             <button type="submit" class="btn btn-start" name="submit-button1" value="label" onclick="">Submit</button>
@@ -40,15 +39,16 @@
             style="background-color: #CEE3EA; {{ 'padding: 20px;' if result is not none and result|length > 0 }}" id="result">
             <pre>{{ result | safe }}<br><br>{{ trials | safe }}<br><br>{{ source | safe }}</pre>
             </div>
-            
         </div>
     </form>   
 
     <br>
 
-    
-    
-</div>
+    <!-- Back Button -->
+    <form method="GET" action="/identify">
+        <button type="submit" class="btn btn-secondary">Back</button>
+    </form>
 
+</div>
 
 {% endblock %}
