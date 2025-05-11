@@ -1,0 +1,101 @@
+sentence
+REPORT_ID	GENDER_ENG	AGE_Y	SERIOUSNESS_ENG	OTHER_MEDICALLY_IMP_COND	HEIGHT_M	WEIGHT_KG	DRUGNAME	INDICATION_NAME_ENG
+1502	Male		Not Serious				DIPHENYLHYDANTOIN SODIUM	Product used for unknown indication
+2907			Not Serious				PANTHO-F	Product used for unknown indication
+3019	Female	52.0	Serious	1.0			DILANTIN	Product used for unknown indication
+3019	Female	52.0	Serious	1.0			DILANTIN	Product used for unknown indication
+7102			Not Serious				DEKA ADRENAL CORTEX	Product used for unknown indication
+24280	Male	66.0	Serious	1.0			TIMOPTIC	Product used for unknown indication
+37483	Male	72.0	Not Serious			52.0	AMINOPHYLLINE	Product used for unknown indication
+78826	Female	35.0	Serious				CAPOTEN	Hypertension
+98059	Female	81.0	Serious			50.0	QUIBRON	Product used for unknown indication
+101581			Not Serious				HYDROCORTISONE ACETATE CREAM USP	Product used for unknown indication
+102718	Female		Serious	1.0			OXAINE	Product used for unknown indication
+102718	Female		Serious	1.0			PROCTOSEDYL	Product used for unknown indication
+107189			Not Serious				NEO-CORTEF	Product used for unknown indication
+109471		68.0	Not Serious				SOLU-CORTEF	Product used for unknown indication
+109471		68.0	Not Serious				SOLU-CORTEF	Product used for unknown indication
+110256			Not Serious				TEDRAL TAB	Product used for unknown indication
+115778		0.011	Serious				ZOLOFT	Product used for unknown indication
+116294		2.0	Serious	1.0			RISPERDAL	Schizophrenia
+116395		0.073	Serious				CLOZARIL	Schizophrenia
+116437	Female		Serious				ZOCOR	Type IIa hyperlipidaemia
+117592	Female	0.074	Serious				CLOMID	Ovulation induction
+117978			Serious	1.0			DEPO-PROVERA STERILE AQUEOUS SUSPENSION	Contraception
+118216	Male		Serious				TETRACYCLINE	Chlamydial infection
+118910	Female	0.073	Serious			3.5	PAXIL	Product used for unknown indication
+118912	Male	0.073	Not Serious			4.2	PAXIL	Product used for unknown indication
+119443	Female	0.073	Serious				NOROXIN	Product used for unknown indication
+120064	Female	18.0	Serious	1.0			DICLECTIN	Morning sickness
+120064	Female	18.0	Serious	1.0			DICLECTIN	Morning sickness
+120066	Female	0.073	Serious		0.68	8.2	DICLECTIN	Morning sickness
+120066	Female	0.073	Serious		0.68	8.2	DICLECTIN	Morning sickness
+120300	Male	0.073	Serious	1.0			PAXIL	Generalised anxiety disorder
+120606		0.074	Serious				DEPAKENE	Foetal exposure during pregnancy
+120638	Male	23.0	Serious				LARIAM TAB 250MG	Malaria prophylaxis
+121561	Female	0.167	Serious	1.0			NYQUIL	Nasopharyngitis
+121858			Serious				LEVOTHYROXINE	Hypothyroidism
+121858			Serious				TRIFLUOPERAZINE TAB 5MG	Depression
+121858			Serious				ZOLOFT	Depression
+121858			Serious				ZOLOFT	Psychotic disorder
+121858			Serious				TRIFLUOPERAZINE TAB 5MG	Psychotic disorder
+121868	Male	0.003	Serious				HISMANAL	Product used for unknown indication
+121902	Male	0.073	Serious				PAXIL	Depression
+122262	Female	36.0	Serious		1.53	42.0	MOTRIN	Myositis
+122403	Female		Serious				NEURONTIN	Seizure
+122451	Female	0.154	Serious				PREPULSID	Gastrooesophageal reflux disease
+122698	Male	0.073	Serious				ACCUTANE ROCHE	Acne
+122700		0.073	Serious				ACCUTANE ROCHE	Acne
+122750	Male		Not Serious			5.0	LAMISIL	Product used for unknown indication
+122756	Female		Not Serious				ZOLOFT	Depression
+123353	Male	0.003	Serious	1.0			3TC	HIV infection
+123353	Male	0.003	Serious	1.0			RETROVIR (AZT)	HIV infection
+123361	Male	0.036	Serious			3.0	RETROVIR (AZT)	Prophylaxis against HIV infection
+123423	Female	5.0	Serious			25.0	CHILDREN'S MOTRIN SUSPENSION	Pyrexia
+124276		1.5	Serious				GRAVOL	Product used for unknown indication
+124276		1.5	Serious				PREPULSID	Product used for unknown indication
+124276		1.5	Serious				LACTULOSE SYRUP	Product used for unknown indication
+124277	Female		Serious	1.0			ZANTAC	Product used for unknown indication
+124277	Female		Serious	1.0			ANALGESICS	Product used for unknown indication
+124277	Female		Serious	1.0			PHENOBARBITAL	Product used for unknown indication
+124277	Female		Serious	1.0			PAXIL	Product used for unknown indication
+124277	Female		Serious	1.0			PROZAC	Product used for unknown indication
+124277	Female		Serious	1.0			ATIVAN	Product used for unknown indication
+124277	Female		Serious	1.0			PREPULSID	Product used for unknown indication
+124278	Male	0.073	Serious				PEPCID	Product used for unknown indication
+124278	Male	0.073	Serious				ANALGESICS	Product used for unknown indication
+124278	Male	0.073	Serious				CYANOCOBALAMINE INJ.	Product used for unknown indication
+124278	Male	0.073	Serious				PREPULSID	Product used for unknown indication
+124278	Male	0.073	Serious				MATERNA	Product used for unknown indication
+124278	Male	0.073	Serious				IRON	Product used for unknown indication
+124280	Male	0.074	Serious	1.0			FAMOTIDINE	Product used for unknown indication
+124280	Male	0.074	Serious	1.0			PREPULSID	Product used for unknown indication
+124280	Male	0.074	Serious	1.0			NITROFURANTOIN	Product used for unknown indication
+124282	Male		Serious				LACTAID	Product used for unknown indication
+124282	Male		Serious				PREPULSID	Product used for unknown indication
+124282	Male		Serious				MATERNA	Product used for unknown indication
+124282	Male		Serious				ANALGESICS	Product used for unknown indication
+124455	Female	0.074	Serious	1.0			ASTEMIZOLE TAB 10MG	Product used for unknown indication
+124464	Female	0.074	Serious				ASTEMIZOLE TAB 10MG	Product used for unknown indication
+124468	Male	0.074	Serious				ASTEMIZOLE TAB 10MG	Product used for unknown indication
+124482	Male	0.074	Not Serious				ASTEMIZOLE TAB 10MG	Product used for unknown indication
+124508	Male	0.074	Not Serious				ASTEMIZOLE TAB 10MG	Product used for unknown indication
+124521	Female	0.074	Not Serious				ASTEMIZOLE TAB 10MG	Product used for unknown indication
+124539	Female	0.074	Not Serious				ASTEMIZOLE TAB 10MG	Product used for unknown indication
+124548	Male	0.074	Not Serious				ASTEMIZOLE TAB 10MG	Product used for unknown indication
+124551	Male	0.019	Not Serious				ASTEMIZOLE TAB 10MG	Product used for unknown indication
+124561	Female	0.014	Not Serious				ASTEMIZOLE TAB 10MG	Product used for unknown indication
+124675	Female	21.0	Serious	1.0			ACCUTANE ROCHE	Acne
+124941	Male	1.167	Serious		0.83	12.0	DICLECTIN	Product used for unknown indication
+125200		0.073	Serious				SINEQUAN	Product used for unknown indication
+125369	Female	0.073	Serious			2.3	IMODIUM - CAPLET 2MG	Product used for unknown indication
+125430	Female	29.0	Serious			98.0	ZYPREXA	Schizophrenia
+125430	Female	29.0	Serious			98.0	ZYPREXA	Schizophrenia
+125430	Female	29.0	Serious			98.0	ZYPREXA	Schizophrenia
+125443		0.073	Serious			2.5	IMODIUM	Product used for unknown indication
+125444	Male	0.073	Serious	1.0	0.5	3.0	DEPAKENE	Product used for unknown indication
+125444	Male	0.073	Serious	1.0	0.5	3.0	PHENOBARBITAL	Product used for unknown indication
+125842		0.073	Serious				IMODIUM - CAPLET 2MG	Product used for unknown indication
+125870		0.003	Serious			1.9	IMODIUM - CAPLET 2MG	Product used for unknown indication
+126298		0.073	Serious				TRANSDERM-NITRO	Product used for unknown indication
+126314	Male	0.073	Serious				IMODIUM	Product used for unknown indication
