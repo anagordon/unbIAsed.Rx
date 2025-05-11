@@ -50,7 +50,30 @@
         </div>
     </form>    
     <br>-->
+    <form id="risk-calc-form" enctype="multipart/form-data" method="POST" action="#risk-calculated" class="mb-3">
+        <div>
+           
+            <h2 class="display-6 text-center my-3">Risk Calculator</h2>
+
+            <div class="mb-3">
+                <label for="label-image" class="form-label">Input Information Below:</label>
+                <input class="form-control" type="text" id="Medication" name="Medication" placeholder="Medication" required><br>
+                <input class="form-control" type="text" id="Age" name="Age" placeholder="Age" required><br>
+                <input class="form-control" type="text" id="Sex" name="Sex" placeholder="Sex" required><br>
+                <input class="form-control" type="text" id="Disease" name="Disease" placeholder="Disease" required><br>
+                <input class="form-control" type="text" id="Ethnicity" name="Ethnicity" placeholder="Ethnicity" required>
+            </div>
+
+            <button type="submit" class="btn btn-start" name="sub" value="risk" onclick="">Submit</button>
+            <br><br>
+            <div class="container container2 position-relative rounded shadow {{ 'hidden' if result is none or result|length == 0 }}" 
+            style="background-color: #CEE3EA; {{ 'padding: 20px;' if result is not none and result|length > 0 }}" id="result">
+            <pre>{{ result | safe }}<br><br>{{ trials | safe }}<br><br>{{ source | safe }}</pre>
+            </div>
+        </div>
+    </form>   
     <br>
+
     <form method="POST" action="/identify">
         <button type="submit" class="btn btn-start" name="new_model" value="new_model">Try our new model!</button>
     </form>
