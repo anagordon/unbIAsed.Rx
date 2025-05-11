@@ -26,7 +26,7 @@ code = Blueprint('code', __name__)
 
 # Function to create a requests session with retries
 def requests_retry_session(
-    retries=3,
+    retries=5,
     backoff_factor=0.3,
     status_forcelist=(500, 502, 504),
     session=None,
@@ -109,6 +109,7 @@ def new_model():
 
             # Check if the request was successful
             if response.status_code == 200:
+                print("Request was successful.")
                 try:
                     data = response.json()
                     studies = data.get('studies', [])
@@ -263,6 +264,7 @@ def new_model():
 
             # Query the database
             query_sentence = f"{Sex} {Age} {Medication} {Disease}"
+            print("Querying database with sentence:", query_sentence)
             # index_path = '/content/drive/My Drive/Programs/BOREALISAI/RAGModel/Data/merged_index_19000.index'
             # metadata_path = '/content/drive/My Drive/Programs/BOREALISAI/RAGModel/Data/merged_metadata_19000.csv'
             similar_sentence, distances = query_database(query_sentence, index_file_path, metadata_file_path, top_k=10)
@@ -327,6 +329,7 @@ def new_model():
 
             # Print the response
             result = response['choices'][0]['message']['content']
+            print("ChatGPT Response: \n\n", result)
             # print("ChatGPT Response: \n\n", answer)
 
             # Flatten trial_ids and remove any unwanted formatting
@@ -346,6 +349,7 @@ def new_model():
             part2 = "\nAdverse drug reaction reports have been sourced from the MedEffect Canada database: https://www.canada.ca/en/health-canada/services/drugs-health-products/medeffect-canada.html\n\n"
 
             result = result + part1 + part2
+            print("Final Result: \n\n", result)
 
             user_agent = request.headers.get('User-Agent').lower()
             if 'mobile' in user_agent:
