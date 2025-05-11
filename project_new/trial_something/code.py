@@ -154,6 +154,11 @@ def new_model():
 
         #GET THE ADR REPORT STATISTICS FOR SPECIFIC MEDICATION
         csv_file_path = os.path.join(os.path.dirname(__file__), 'ADRdata.csv')
+        with open(csv_file_path, 'r') as file:
+            first_line = file.readline()
+            if "version https://git-lfs.github.com/spec/v1" in first_line:
+                print("Error: File is a Git LFS pointer. Run 'git lfs pull' to download the actual file.")
+                return "ADR data file is not properly downloaded.", 500
         df = pd.read_csv(csv_file_path, delimiter='\t')
 
         # Define the specific string you're looking for
