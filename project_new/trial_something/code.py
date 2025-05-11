@@ -1,62 +1,44 @@
-from flask import Blueprint, render_template, request
-import openai
-import json
-from transformers import BertTokenizer, BertModel, BertForSequenceClassification, AutoTokenizer, AutoModel
-import torch
-import pandas as pd
-import os
-import numpy as np
+from flask import Blueprint, render_template, request, jsonify, flash, redirect, session, url_for
 from flask_login import login_user, login_required, logout_user, current_user
-import seaborn as sns
-import tensorflow_hub as hub
-import faiss
-# import torch.nn as nn
-import re
-import requests
-from requests.adapters import HTTPAdapter
-from urllib3.util.retry import Retry
-import os
-import re
-import json
-from flask import Blueprint, jsonify, render_template, request, flash, redirect, session, url_for
-import pandas as pd
-from .models import User, Drugs
 from werkzeug.security import generate_password_hash, check_password_hash
-from . import db   #means from __init__.py import db
-from flask_login import login_user, login_required, logout_user, current_user
+from werkzeug.utils import secure_filename
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, ValidationError
 from wtforms.validators import DataRequired, Email
-from werkzeug.utils import secure_filename
-from fuzzywuzzy import process
-import pytesseract
-import cv2
-import nltk
-from nltk.corpus import stopwords
-from nltk.stem import PorterStemmer
-nltk.download('stopwords')
-import difflib
 from sqlalchemy import or_
-import torch
-import requests
-import torch.nn as nn
-import torch
+from fuzzywuzzy import process
+from transformers import BertTokenizer, BertModel, BertForSequenceClassification, AutoTokenizer, AutoModel
 from torchvision.models import shufflenet_v2_x0_5, ShuffleNet_V2_X0_5_Weights
-import timm
 from albumentations import (
     Compose, Normalize, Resize, RandomResizedCrop, RandomCrop, HorizontalFlip, VerticalFlip,
     Rotate, ShiftScaleRotate, Transpose
 )
 from albumentations.pytorch import ToTensorV2
-from trial_something.views import get_model
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
+from .models import User, Drugs
+from . import db
 import openai
-from transformers import BertTokenizer, BertModel, BertForSequenceClassification, AutoTokenizer, AutoModel
+import pandas as pd
+import numpy as np
+import torch
+import torch.nn as nn
+import faiss
 import seaborn as sns
 import tensorflow_hub as hub
-import faiss
-import numpy as np
+import pytesseract
+import cv2
+import nltk
+from nltk.corpus import stopwords
+from nltk.stem import PorterStemmer
+import re
+import os
+import requests
+import json
+import difflib
+
+# Download NLTK stopwords
+nltk.download('stopwords')
 
 
 # Set environment variables to resolve OpenMP runtime conflict and disable oneDNN custom operations
@@ -87,7 +69,7 @@ def requests_retry_session(
     return session
 
 
-@code.route('/identify/new-model', methods=['GET', 'POST'])
+@code.route('/new-model', methods=['GET', 'POST'])
 def new_model():
     #Write Code Here
     try:
