@@ -257,10 +257,12 @@ def new_model():
                 
         # Load FAISS index and metadata
         index_file_path = os.path.join(os.path.dirname(__file__), 'merged_index_19000.index')
+        print("Loading FAISS index...")
         index = faiss.read_index(index_file_path)
         print("FAISS index loaded successfully.")
 
         metadata_file_path = os.path.join(os.path.dirname(__file__), 'merged_metadata_19000.csv')
+        print("Loading metadata...")
         metadata_df = pd.read_csv(metadata_file_path)
         print("Metadata loaded successfully.")
         # Function to query the FAISS database - UPDATED VIN'S VERSION november 21st
