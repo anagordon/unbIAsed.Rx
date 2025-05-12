@@ -221,7 +221,8 @@ def new_model():
         logging.set_verbosity_info()  # Set logging level to INFO
         model_str = "NeuML/pubmedbert-base-embeddings"
         tokenizer = AutoTokenizer.from_pretrained(model_str)
-        model = AutoModel.from_pretrained(model_str)
+        # model = AutoModel.from_pretrained(model_str)
+        model = AutoModel.from_pretrained(model_str, use_safetensors=False)
         # print("Model and tokenizer loaded successfully.")
         # try:
         #     print("Loading tokenizer...")
@@ -254,12 +255,12 @@ def new_model():
 
             return embeddings
 
-                
         # Load FAISS index and metadata
         index_file_path = os.path.join(os.path.dirname(__file__), 'merged_index_19000.index')
         print("Loading FAISS index...")
         print(f"FAISS index file path: {index_file_path}")
         print(f"FAISS index file exists: {os.path.exists(index_file_path)}")
+        print(f"FAISS index file size: {os.path.getsize(index_file_path)} bytes")
         
         index = faiss.read_index(index_file_path)
         print("FAISS index loaded successfully.")
