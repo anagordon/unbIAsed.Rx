@@ -220,7 +220,7 @@ def new_model():
         # model = BertForSequenceClassification.from_pretrained('bert-base-uncased', output_hidden_states=True)
         logging.set_verbosity_info()  # Set logging level to INFO
         model_str = "NeuML/pubmedbert-base-embeddings"
-        tokenizer = AutoTokenizer.from_pretrained(model_str)
+        tokenizer = AutoTokenizer.from_pretrained(model_str, use_safetensors=False)
         # model = AutoModel.from_pretrained(model_str)
         model = AutoModel.from_pretrained(model_str, use_safetensors=False)
         # print("Model and tokenizer loaded successfully.")
