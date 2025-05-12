@@ -31,7 +31,7 @@ from albumentations import (
     Rotate, ShiftScaleRotate, Transpose
 )
 from albumentations.pytorch import ToTensorV2
-# from trial_something.views import get_model
+from trial_something.views import get_model
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 import openai
