@@ -258,6 +258,9 @@ def new_model():
         # Load FAISS index and metadata
         index_file_path = os.path.join(os.path.dirname(__file__), 'merged_index_19000.index')
         print("Loading FAISS index...")
+        print(f"FAISS index file path: {index_file_path}")
+        print(f"FAISS index file exists: {os.path.exists(index_file_path)}")
+        
         index = faiss.read_index(index_file_path)
         print("FAISS index loaded successfully.")
 
